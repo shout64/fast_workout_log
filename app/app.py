@@ -19,6 +19,6 @@ def get_raw_data():
 @app.get(f"/exercise/")
 def get_exercise(name: str):
     for exercise in response:
-        if name in exercise["name"]:
+        if name.lower() in (exercise["name"]).lower():
             return exercise
     return HTTPException(status_code=404, detail=f"No exercise found matching {name}")
